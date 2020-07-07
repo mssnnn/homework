@@ -242,7 +242,28 @@
                 multipleSelection: [],
                 pageNum: 1,
                 pageSize: 3,
-                tableData: []
+                tableData: [{
+                    name: '王小虎1',
+                    phone: 15515111511,
+                    mail: '123456789@qq.com',
+                    jobTitle: '部长',
+                    department: '吃饭部',
+                    date: '2016-05-03',
+                }, {
+                    name: '王小虎2',
+                    phone: 15515111511,
+                    mail: '123456789@qq.com',
+                    jobTitle: '部长',
+                    department: '吃饭部',
+                    date: '2016-05-03',
+                }, {
+                    name: '王小虎3',
+                    phone: 15515111511,
+                    mail: '123456789@qq.com',
+                    jobTitle: '部长',
+                    department: '吃饭部',
+                    date: '2016-05-03',
+                }]
             }
         },
 
@@ -260,7 +281,6 @@
                 this.multipleSelection = val;
             },
             handleCurrentChange(pageNumber) {
-                alert(this.pageNum +  '_' + this.pageSize +  '_' + pageNumber)
                 this.tableData = []
                 var start = (pageNumber - 1) * this.pageSize
                 var end = start + this.pageSize

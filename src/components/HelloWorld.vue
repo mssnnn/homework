@@ -111,6 +111,7 @@
                     width="55">
             </el-table-column>
             <el-table-column
+                    prop="name"
                     label="姓名"
                     width="130">
                 <template slot-scope="scope">{{ scope.row.name }}</template>
@@ -240,7 +241,7 @@
                 formLabelWidth: '120px',
                 multipleSelection: [],
                 pageNum: 1,
-                pageSize: 5,
+                pageSize: 3,
                 tableData: []
             }
         },
@@ -258,11 +259,26 @@
             handleSelectionChange(val) {
                 this.multipleSelection = val;
             },
-            handleCurrentChange() {
-                this.pageNum
-                this.pageSize
-                this.tableData
-                this.data
+            handleCurrentChange(pageNumber) {
+                alert(this.pageNum +  '_' + this.pageSize +  '_' + pageNumber)
+                this.tableData = []
+                var start = (pageNumber - 1) * this.pageSize
+                var end = start + this.pageSize
+                this.data.forEach((item, index) => {
+                    if (start <= index && end > index) {
+                        this.tableData.push(item)
+                    }
+                })
+            },
+            handleSizeChange: function (size) {
+                this.pageSize = size
+                var start = (this.pageNum - 1) * this.pageSize
+                var end = start + this.pageSize
+                this.data.forEach((item, index) => {
+                    if (start <= index && end > index) {
+                        this.tableData.push(item)
+                    }
+                })
             },
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {

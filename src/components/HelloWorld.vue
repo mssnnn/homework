@@ -291,6 +291,7 @@
                 })
             },
             handleSizeChange: function (size) {
+                this.tableData = []
                 this.pageSize = size
                 var start = (this.pageNum - 1) * this.pageSize
                 var end = start + this.pageSize
